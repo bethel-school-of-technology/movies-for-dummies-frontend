@@ -1,0 +1,86 @@
+npm -v 6.14.8
+  npm install -g npm@latest      - latest stable version
+  npm install -g npm@next       - most recent not stable
+
+node -v   12.18.3            -latest stable
+
+ng version         -    check angular version
+Angular CLI: 10.0.8
+Node: 12.18.3
+OS: win32 x64
+
+Angular: 10.0.14
+... animations, common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
+Ivy Workspace: Yes
+
+Package                           Version
+-----------------------------------------------------------
+@angular-devkit/architect         0.1000.8
+@angular-devkit/build-angular     0.1000.8
+@angular-devkit/build-optimizer   0.1000.8
+@angular-devkit/build-webpack     0.1000.8
+@angular-devkit/core              10.0.8
+@angular-devkit/schematics        10.0.8
+@angular/cli                      10.0.8
+@ngtools/webpack                  10.0.8
+@schematics/angular               10.0.8
+@schematics/update                0.1000.8
+rxjs                              6.5.5
+typescript                        3.9.7
+
+webpack                           4.43.0
+angular 10
+  npm install -g @angular/cli
+  ng update @angular/cli @angular/core    -   should take you right to
+
+tsc --version     4.0.2
+  npm install -g typescript    - if angular doesnt auto update
+  npm typescript@2.8 --save-dev       - reference only
+
+ng new movies-for-dummies
+
+npm install
+
+***** general
+ng generate component __________      or ng g c ______________    - makes a component in the app file
+ng g class models/_____       - puts a .ts file in a new folder "models"
+ng g enum types/______ -   enum.ts file in "type" folder - helps define what data should be in the models folder
+ng g service service/_______  - adds a _____.ts, and _____.spec.ts in a "service folder
+
+create our components
+ng g component admin
+ng g component auth/login
+ng g component auth/register
+ng g component home
+ng g component movie
+ng g component movie/movie-details
+ng g component movie/movie-add
+ng g component movie/movie-edit
+ng g component post
+ng g component post/post-details
+ng g component post/post-add
+ng g component post/post-edit
+
+create a service folder. add the services to it
+ng g service services/home
+ng g service services/movie
+ng g service service/post
+ng g service services/auth
+
+create models folder   -  ng g class folder/file
+ng g class models/movie
+ng g class models/user
+
+********* hold off on these for now*********
+
+ng generate guard auth/auth
+ng g component bymovie
+ng g component details
+
+ng add @angular/material       - look up documentation. angular 10 changed it all
+ng generate guard auth/auth
+
+
+
+
