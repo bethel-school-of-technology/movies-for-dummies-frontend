@@ -1,15 +1,23 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<hr/>
-<div style="text-align:center">
-  <div>
-      <h2>Static Planet Data</h2>
-      <h3>{{staticPath}}</h3>
-      <app-planets
-        [dataPath]="staticPath">
-      </app-planets>
-  </div>
-</div>
+<mat-toolbar>
+
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+
+  <mat-menu #menu="matMenu">
+
+    <div *ngIf="loginStatus === false">
+      <button mat-menu-item [routerLink]="['/']">Home</button>
+      <button mat-menu-item *ngFor="let movie of movies" [routerLink]="['/bymovie/', movie._id]">{{movie.movieName}}</button>
+    </div>
+
+    <div *ngIf="loginStatus === true">
+      <button mat-menu-item [routerLink]="['/admin']">Home</button>
+      <button mat-menu-item [routerLink]="['/movie']">Movie</button>
+      <button mat-menu-item [routerLink]="['/post']">Post</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </div>
+
+  </mat-menu>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>
