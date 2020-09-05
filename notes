@@ -61,6 +61,8 @@ ng g component post
 ng g component post/post-details
 ng g component post/post-add
 ng g component post/post-edit
+ng g component bymovie
+ng g component details
 
 create a service folder. add the services to it
 ng g service services/home
@@ -71,15 +73,17 @@ ng g service services/auth
 create models folder   -  ng g class folder/file
 ng g class models/movie
 ng g class models/user
-
-********* hold off on these for now*********
+ng g class models/post
 
 ng generate guard auth/auth
-ng g component bymovie
-ng g component details
+
 
 ng add @angular/material       - look up documentation. angular 10 changed it all
-ng generate guard auth/auth
+
+
+***** do i need these?******
+npm install --save ckeditor4-angular
+npm install mat-contenteditable --save
 
 
 

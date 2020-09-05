@@ -1,9 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AppRoutingModule } from './app-routing.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { MatContenteditableModule } from 'mat-contenteditable';
+
 import { AppComponent } from './app.component';
+
 import { PlanetsComponent } from './components/planets/planets.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -17,6 +35,10 @@ import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
+import { BymovieComponent } from './bymovie/bymovie.component';
+import { DetailsComponent } from './details/details.component';
+import { AuthGuard } from './auth/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -33,14 +55,39 @@ import { PostEditComponent } from './post/post-edit/post-edit.component';
     PostComponent,
     PostDetailsComponent,
     PostAddComponent,
-    PostEditComponent
+    PostEditComponent,
+    BymovieComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatToolbarModule,
+    CKEditorModule,
+    MatContenteditableModule,
+    AuthGuard
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
