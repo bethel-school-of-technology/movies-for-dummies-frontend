@@ -15,7 +15,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-movie-edit',
   templateUrl: './movie-edit.component.html',
-  styleUrls: ['./movie-edit.component.scss']
+  styleUrls: ['./movie-edit.component.css']
 })
 export class MovieEditComponent implements OnInit {
 
