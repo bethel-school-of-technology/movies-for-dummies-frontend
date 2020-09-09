@@ -6,7 +6,7 @@
 
     <div *ngIf="loginStatus === false">
       <button mat-menu-item [routerLink]="['/']">Home</button>
-      <button mat-menu-item *ngFor="let movie of movies" [routerLink]="['/bymovie/', movie._id]">{{movie.movieName}}</button>
+      <button mat-menu-item *ngFor="let movie of movies" [routerLink]="['/bymovie/', movie.id]">{{movie.movieName}}</button>
     </div>
 
     <div *ngIf="loginStatus === true">

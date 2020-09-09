@@ -4,11 +4,11 @@ import { Post } from '../models/post';
 import { HomeService } from '../services/home.service';
 
 @Component({
-  selector: 'app-bycategory',
-  templateUrl: './bycategory.component.html',
-  styleUrls: ['./bycategory.component.scss']
+  selector: 'app-bymovie',
+  templateUrl: './bymovie.component.html',
+  styleUrls: ['./bymovie.component.css']
 })
-export class BycategoryComponent implements OnInit {
+export class BymovieComponent implements OnInit {
 
   posts: Post[] = [];
   isLoadingResults = true;

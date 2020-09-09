@@ -1,10 +1,10 @@
+import { MovieService } from './../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { CategoryService } from '../../services/movie.service';
-import { Category } from './../../category/category';
+import { Movie } from '../../models/movie';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -17,12 +17,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-post-add',
   templateUrl: './post-add.component.html',
-  styleUrls: ['./post-add.component.scss']
+  styleUrls: ['./post-add.component.css']
 })
 export class PostAddComponent implements OnInit {
 
   postForm: FormGroup;
-  category = '';
+  movie = '';
   postTitle = '';
   postAuthor = '';
   postDesc = '';
@@ -31,18 +31,18 @@ export class PostAddComponent implements OnInit {
   postImgUrl = '';
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
-  categories: Category[] = [];
+  movies: Movie[] = [];
 
   constructor(
     private router: Router,
     private api: PostService,
-    private catApi: CategoryService,
+    private movieApi: MovieService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getCategories();
+    this.getMovies();
     this.postForm = this.formBuilder.group({
-      category : [null, Validators.required],
+      movie : [null, Validators.required],
       postTitle : [null, Validators.required],
       postAuthor : [null, Validators.required],
       postDesc : [null, Validators.required],
@@ -50,6 +50,9 @@ export class PostAddComponent implements OnInit {
       postReference : [null, Validators.required],
       postImgUrl : [null, Validators.required]
     });
+  }
+  getMovie() {
+    throw new Error("Method not implemented.");
   }
 
   onFormSubmit() {
@@ -65,11 +68,11 @@ export class PostAddComponent implements OnInit {
         });
   }
 
-  getCategories() {
-    this.catApi.getCategories()
+  getMovies() {
+    this.movieApi.getMovies()
       .subscribe((res: any) => {
-        this.categories = res;
-        console.log(this.categories);
+        this.movies = res;
+        console.log(this.movies);
         this.isLoadingResults = false;
       }, err => {
         console.log(err);
