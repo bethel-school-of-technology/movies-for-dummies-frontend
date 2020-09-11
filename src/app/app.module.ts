@@ -6,21 +6,22 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { CKEditorModule } from 'ckeditor4-angular';
-import { MatContenteditableModule } from 'mat-contenteditable';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { QuillModule } from  'ngx-quill';
 import { AppComponent } from './app.component';
+import { MatGridListModule } from '@angular/material/grid-list'
+import {MatSelectModule, MatSelect} from '@angular/material/select';
 
 import { PlanetsComponent } from './components/planets/planets.component';
 import { AdminComponent } from './admin/admin.component';
@@ -77,9 +78,10 @@ import { AuthGuard } from './auth/auth.guard';
     MatFormFieldModule,
     MatMenuModule,
     MatToolbarModule,
-    CKEditorModule,
-    MatContenteditableModule,
-    AuthGuard
+    QuillModule.forRoot(),
+    AuthGuard,
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [
     {

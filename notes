@@ -77,14 +77,12 @@ ng g class models/post
 
 ng generate guard auth/auth
 
-
 ng add @angular/material       - look up documentation. angular 10 changed it all
 
+npm install ngx-quill
+npm install quill
+npm install quill-delta
+npm install quill-emoji
+npm install quill-mention
 
-***** do i need these?******
-npm install --save ckeditor4-angular
-npm install mat-contenteditable --save
-
-
-
-
+these are changes from bob

@@ -1,4 +1,5 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -8,9 +9,8 @@ const apiUrl = 'http://localhost:3000/api/auth/';
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
-
+  apiUrl = 'http://localhost:3000/api/auth/';
   @Output() isLoggedIn: EventEmitter<any> = new EventEmitter();
   loggedInStatus = false;
   redirectUrl: string;
@@ -18,7 +18,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
-    return this.http.post<any>(apiUrl + 'login', data)
+    return this.http.post<any>(this.apiUrl + 'login', data)
       .pipe(
         tap(_ => {
           this.isLoggedIn.emit(true);
@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    return this.http.post<any>(apiUrl + 'logout', {})
+    return this.http.post<any>(this.apiUrl + 'logout', {})
       .pipe(
         tap(_ => {
           this.isLoggedIn.emit(false);
@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-    return this.http.post<any>(apiUrl + 'register', data)
+    return this.http.post<any>(this.apiUrl + 'register', data)
       .pipe(
         tap(_ => this.log('login')),
         catchError(this.handleError('login', []))

@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Movie } from '../../models/movie';
+
+import { MovieService } from '../../services/movie.service';
+import { Movie } from 'src/app/models/movie';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -33,10 +35,27 @@ export class PostAddComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   movies: Movie[] = [];
 
+  quillConfig = {
+    toolbar: {
+      container: [
+        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['clean'],                                         // remove formatting button
+        ['link'],
+        //['link', 'image', 'video']
+      ],
+    },
+  }
+
   constructor(
     private router: Router,
     private api: PostService,
-    private movieApi: MovieService,
+    private catApi: MovieService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -56,17 +75,19 @@ export class PostAddComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.isLoadingResults = true;
-    this.api.addPost(this.postForm.value)
-      .subscribe((res: any) => {
-          const id = res._id;
-          this.isLoadingResults = false;
-          this.router.navigate(['/post/details', id]);
-        }, (err: any) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        });
+    console.log(this.postContent)
+    // this.isLoadingResults = true;
+    // this.api.addPost(this.postForm.value)
+    //   .subscribe((res: any) => {
+    //       const id = res._id;
+    //       this.isLoadingResults = false;
+    //       this.router.navigate(['/post/details', id]);
+    //     }, (err: any) => {
+    //       console.log(err);
+    //       this.isLoadingResults = false;
+    //     });
   }
+
 
   getMovies() {
     this.movieApi.getMovies()
@@ -79,5 +100,4 @@ export class PostAddComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
-
 }
