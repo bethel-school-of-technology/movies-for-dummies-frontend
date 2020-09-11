@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -13,7 +14,7 @@ import { MovieEditComponent } from './movie/movie-edit/movie-edit.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
-import { BymovieComponent } from './bymovie/bymovie.component';
+import { BymovieComponent } from './Bymovie/Bymovie.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [

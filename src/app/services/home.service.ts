@@ -30,11 +30,11 @@ export class HomeService {
       );
   }
 
-  getPostsByMovie(id: any): Observable<Post[]> {
-    return this.http.get<Post[]>(apiUrl + 'bycategory/' + id)
+  getByMovie(id: any): Observable<Post[]> {
+    return this.http.get<Post[]>(apiUrl + 'bymovie/' + id)
       .pipe(
         tap(_ => this.log('fetched Posts')),
-        catchError(this.handleError('getPosts', []))
+        catchError(this.handleError('getByMovie', []))
       );
   }
 
