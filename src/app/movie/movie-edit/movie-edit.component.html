@@ -34,7 +34,7 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <ckeditor matCkeditor placehoder="Movie Content" formControlName="movieContent"></ckeditor>
+        <!-- <ckeditor matCkeditor placehoder="Movie Content" formControlName="movieContent"></ckeditor> -->
         <mat-error>
           <span *ngIf="!movieForm.get('movieContent').valid && movieForm.get('movieContent').touched">Please enter Movie Description</span>
         </mat-error>

@@ -13,7 +13,7 @@
     <form [formGroup]="postForm" (ngSubmit)="onFormSubmit()">
 
       <mat-form-field class="example-full-width">
-        <mat-select formControlName="category" [errorStateMatcher]="matcher">
+        <mat-select formControlName="movie" [errorStateMatcher]="matcher">
           <mat-option *ngFor="let movie of movies" [value]="movie.id">
             {{movie.movieName}}
           </mat-option>
@@ -45,7 +45,7 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <ckeditor matInput placehoder="Post Content" formControlName="postContent"></ckeditor>
+          <!-- <ckeditor matInput placehoder="Post Content" formControlName="postContent"></ckeditor> -->
           <mat-error>
             <span *ngIf="!postForm.get('postContent').valid && postForm.get('postContent').touched">Please enter Post Content</span>
           </mat-error>

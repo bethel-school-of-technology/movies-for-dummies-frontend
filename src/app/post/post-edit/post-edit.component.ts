@@ -5,7 +5,8 @@ import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MovieService } from '../../services/movie.service';
-import { Post } from './../../models/post';
+import { Movie } from 'src/app/models/movie';
+
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -15,6 +16,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+
+
 @Component({
   selector: 'app-post-edit',
   templateUrl: './post-edit.component.html',
@@ -22,6 +25,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class PostEditComponent implements OnInit {
 
+  posts: Post[] = [];
   postForm: FormGroup;
   movie = '';
   id = '';
@@ -44,7 +48,7 @@ export class PostEditComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getCategories();
+    // this.getMovies();
     this.getPost(this.route.snapshot.params.id);
     this.postForm = this.formBuilder.group({
       postTitle : [null, Validators.required],

@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { CategoryService } from '../../services/movie.service';
-import { Category } from './../../category/category';
+import { MovieService } from '../../services/movie.service';
+import { Movie } from 'src/app/models/movie';
+
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -17,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-post-add',
   templateUrl: './post-add.component.html',
-  styleUrls: ['./post-add.component.scss']
+  styleUrls: ['./post-add.component.css']
 })
 export class PostAddComponent implements OnInit {
 
@@ -31,16 +32,33 @@ export class PostAddComponent implements OnInit {
   postImgUrl = '';
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
-  categories: Category[] = [];
+  movies: Movie[] = [];
+
+  quillConfig = {
+    toolbar: {
+      container: [
+        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['clean'],                                         // remove formatting button
+        ['link'],
+        //['link', 'image', 'video']
+      ],
+    },
+  }
 
   constructor(
     private router: Router,
     private api: PostService,
-    private catApi: CategoryService,
+    private catApi: MovieService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getCategories();
+    // this.getCategories();
     this.postForm = this.formBuilder.group({
       category : [null, Validators.required],
       postTitle : [null, Validators.required],
@@ -53,28 +71,29 @@ export class PostAddComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.isLoadingResults = true;
-    this.api.addPost(this.postForm.value)
-      .subscribe((res: any) => {
-          const id = res._id;
-          this.isLoadingResults = false;
-          this.router.navigate(['/post/details', id]);
-        }, (err: any) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        });
+    console.log(this.postContent)
+    // this.isLoadingResults = true;
+    // this.api.addPost(this.postForm.value)
+    //   .subscribe((res: any) => {
+    //       const id = res._id;
+    //       this.isLoadingResults = false;
+    //       this.router.navigate(['/post/details', id]);
+    //     }, (err: any) => {
+    //       console.log(err);
+    //       this.isLoadingResults = false;
+    //     });
   }
 
-  getCategories() {
-    this.catApi.getCategories()
-      .subscribe((res: any) => {
-        this.categories = res;
-        console.log(this.categories);
-        this.isLoadingResults = false;
-      }, err => {
-        console.log(err);
-        this.isLoadingResults = false;
-      });
-  }
+  // getCategories() {
+  //   this.catApi.getCategories()
+  //     .subscribe((res: any) => {
+  //       this.categories = res;
+  //       console.log(this.categories);
+  //       this.isLoadingResults = false;
+  //     }, err => {
+  //       console.log(err);
+  //       this.isLoadingResults = false;
+  //     });
+  // }
 
 }

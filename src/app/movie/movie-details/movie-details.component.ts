@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
-import { Movie } from '../movie.component';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.scss']
+  styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
 
@@ -20,25 +20,25 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   getMovieDetails(id: any) {
-    this.api.getMovies(id)
-      .subscribe((data: any) => {
-        this.movie = data;
-        console.log(this.movie);
-        this.isLoadingResults = false;
-      });
+    // this.api.getMovies(id)
+    //   .subscribe((data: any) => {
+    //     this.movie = data;
+    //     console.log(this.movie);
+    //     this.isLoadingResults = false;
+    //   });
   }
 
   deleteMovie(id: any) {
-    this.isLoadingResults = true;
-    this.api.deleteMovie(id)
-      .subscribe(res => {
-          this.isLoadingResults = false;
-          this.router.navigate(['/movie']);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        }
-      );
+    // this.isLoadingResults = true;
+    // this.api.deleteMovie(id)
+    //   .subscribe(res => {
+    //       this.isLoadingResults = false;
+    //       this.router.navigate(['/movie']);
+    //     }, (err) => {
+    //       console.log(err);
+    //       this.isLoadingResults = false;
+    //     }
+    //   );
   }
 
 }
