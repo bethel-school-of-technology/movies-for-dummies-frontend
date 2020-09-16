@@ -45,7 +45,9 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
+         <!-- <quill-editor [modules]="quillConfig" placehoder="Post Content" formControlName="postContent"></quill-editor> -->
           <!-- <ckeditor matInput placehoder="Post Content" formControlName="postContent"></ckeditor> -->
+          <quill-editor matInput placeholder="Post Content" formControlName="postContent"></quill-editor>
           <mat-error>
             <span *ngIf="!postForm.get('postContent').valid && postForm.get('postContent').touched">Please enter Post Content</span>
           </mat-error>

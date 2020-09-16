@@ -58,7 +58,7 @@ export class PostAddComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    // this.getCategories();
+    // this.getMovies();
     this.postForm = this.formBuilder.group({
       category : [null, Validators.required],
       postTitle : [null, Validators.required],
@@ -72,28 +72,28 @@ export class PostAddComponent implements OnInit {
 
   onFormSubmit() {
     console.log(this.postContent)
-    // this.isLoadingResults = true;
-    // this.api.addPost(this.postForm.value)
-    //   .subscribe((res: any) => {
-    //       const id = res._id;
-    //       this.isLoadingResults = false;
-    //       this.router.navigate(['/post/details', id]);
-    //     }, (err: any) => {
-    //       console.log(err);
-    //       this.isLoadingResults = false;
-    //     });
+    this.isLoadingResults = true;
+    this.api.addPost(this.postForm.value)
+      .subscribe((res: any) => {
+          const id = res._id;
+          this.isLoadingResults = false;
+          this.router.navigate(['/post/details', id]);
+        }, (err: any) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        });
   }
 
-  // getCategories() {
-  //   this.catApi.getCategories()
-  //     .subscribe((res: any) => {
-  //       this.categories = res;
-  //       console.log(this.categories);
-  //       this.isLoadingResults = false;
-  //     }, err => {
-  //       console.log(err);
-  //       this.isLoadingResults = false;
-  //     });
-  // }
+  getMovies() {
+    this.catApi.getMovies()
+      .subscribe((res: any) => {
+        this.movies = res;
+        console.log(this.movies);
+        this.isLoadingResults = false;
+      }, err => {
+        console.log(err);
+        this.isLoadingResults = false;
+      });
+  }
 
 }

@@ -11,37 +11,48 @@ const apiUrl = 'http://localhost:3000/api/public/';
   providedIn: 'root'
 })
 export class MovieService {
+  getPosts() {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(apiUrl + 'movie')
+    return this.http.get<Movie[]>(apiUrl)
       .pipe(
-        tap(_ => this.log('fetched Movie')),
+        tap(_ => this.log('fetched Movies')),
         catchError(this.handleError('getMovies', []))
       );
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(apiUrl + 'post')
-      .pipe(
-        tap(_ => this.log('fetched Posts')),
-        catchError(this.handleError('getPosts', []))
-      );
+  getMovie(id: any): Observable<Movie> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<Movie>(url).pipe(
+      tap(_ => console.log(`fetched movie by id=${id}`)),
+      catchError(this.handleError<Movie>(`getMovie id=${id}`))
+    );
   }
 
-  getPostsByMovie(id: any): Observable<Post[]> {
-    return this.http.get<Post[]>(apiUrl + 'bymovie/' + id)
-      .pipe(
-        tap(_ => this.log('fetched Posts')),
-        catchError(this.handleError('getPosts', []))
-      );
+  addMovie(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(apiUrl, movie).pipe(
+      tap((prod: Movie) => console.log(`added movie w/ id=${movie.id}`)),
+      catchError(this.handleError<Movie>('addMovie'))
+    );
   }
 
-  getPost(id: any): Observable<Post> {
-    return this.http.get<Post>(apiUrl + 'post/' + id).pipe(
-      tap(_ => console.log(`fetched post by id=${id}`)),
-      catchError(this.handleError<Post>(`getPost id=${id}`))
+  updateMovie(id: any, movie: Movie): Observable<any> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.put(url, movie).pipe(
+      tap(_ => console.log(`updated movie id=${id}`)),
+      catchError(this.handleError<any>('updateMovie'))
+    );
+  }
+
+  deleteMovie(id: any): Observable<Movie> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.delete<Movie>(url).pipe(
+      tap(_ => console.log(`deleted movie id=${id}`)),
+      catchError(this.handleError<Movie>('deleteMovie'))
     );
   }
 

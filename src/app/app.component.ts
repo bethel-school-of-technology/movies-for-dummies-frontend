@@ -10,6 +10,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
+
+// export class AppComponent implements OnInit {
+// ...
+// }
 export class AppComponent {
   title = 'Angular 2 Planets';
   staticPath: string = 'http://localhost:3001/staticPlanets';
@@ -17,23 +23,25 @@ export class AppComponent {
   loginStatus = false;
 
 
+
+
   constructor(private api: HomeService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    // this.authService.isLoggedIn.subscribe((status: any) => {
-    //   if (status === true) {
-    //     this.loginStatus = true;
-    //   } else {
-    //     this.loginStatus = false;
-    //   }
-    // });
-    // this.api.getCategories()
-    //   .subscribe((res: any) => {
-    //     this.categories = res;
-    //     console.log(this.categories);
-    //   }, err => {
-    //     console.log(err);
-    //   });
+    this.authService.isLoggedIn.subscribe((status: any) => {
+      if (status === true) {
+        this.loginStatus = true;
+      } else {
+        this.loginStatus = false;
+      }
+    });
+    this.api.getMovies()
+      .subscribe((res: any) => {
+        this.movies = res;
+        console.log(this.movies);
+      }, err => {
+        console.log(err);
+      });
   }
 
   logout() {

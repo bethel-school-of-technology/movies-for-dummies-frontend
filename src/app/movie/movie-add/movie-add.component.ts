@@ -40,15 +40,15 @@ export class MovieAddComponent implements OnInit {
 
   onFormSubmit() {
     this.isLoadingResults = true;
-    // this.api.addMovie(this.movieForm.value)
-    //   .subscribe((res: any) => {
-    //       const id = res._id;
-    //       this.isLoadingResults = false;
-    //       this.router.navigate(['/movie-details', id]);
-    //     }, (err: any) => {
-    //       console.log(err);
-    //       this.isLoadingResults = false;
-    //     });
+    this.api.addMovie(this.movieForm.value)
+      .subscribe((res: any) => {
+          const id = res._id;
+          this.isLoadingResults = false;
+          this.router.navigate(['/movie-details', id]);
+        }, (err: any) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        });
   }
 
 }
