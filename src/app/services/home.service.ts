@@ -11,6 +11,7 @@ const apiUrl = 'http://localhost:3000/api/public/';
   providedIn: 'root'
 })
 export class HomeService {
+  [x: string]: any;
 
   constructor(private http: HttpClient) { }
 

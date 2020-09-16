@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-
-import { MovieService } from '../../services/movie.service';
 import { Movie } from 'src/app/models/movie';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -52,14 +50,9 @@ export class PostAddComponent implements OnInit {
     },
   }
 
-  constructor(
-    private router: Router,
-    private api: PostService,
-    private catApi: MovieService,
-    private formBuilder: FormBuilder) { }
+  constructor( private router: Router, private api: PostService, private movieApi: MovieService, private formBuilder: FormBuilder) { }
 
-  ngOnInit() 
-    // this.getMovies();
+  ngOnInit() {
     this.postForm = this.formBuilder.group({
       movie : [null, Validators.required],
       postTitle : [null, Validators.required],
@@ -69,9 +62,6 @@ export class PostAddComponent implements OnInit {
       postReference : [null, Validators.required],
       postImgUrl : [null, Validators.required]
     });
-  }
-  getMovie() {
-    throw new Error("Method not implemented.");
   }
 
   onFormSubmit() {
@@ -87,6 +77,9 @@ export class PostAddComponent implements OnInit {
           this.isLoadingResults = false;
         });
   }
+  getMovie() {
+    throw new Error("Method not implemented.");
+  }
 
   getMovies() {
     this.movieApi.getMovies()
@@ -99,4 +92,5 @@ export class PostAddComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,7 @@ import { MatSelectModule, MatSelect } from '@angular/material/select';
 
 import { PlanetsComponent } from './components/planets/planets.component';
 import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent, MyErrorStateMatcher } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { MovieComponent } from './movie/movie.component';
@@ -38,7 +38,6 @@ import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { BymovieComponent } from './bymovie/bymovie.component';
 import { DetailsComponent } from './details/details.component';
 import { AuthGuard } from './auth/auth.guard';
-
 
 @NgModule({
   declarations: [
@@ -58,6 +57,7 @@ import { AuthGuard } from './auth/auth.guard';
     PostEditComponent,
     BymovieComponent,
     DetailsComponent,
+    MyErrorStateMatcher
   ],
   imports: [
     BrowserModule,
@@ -90,5 +90,6 @@ import { AuthGuard } from './auth/auth.guard';
     },
   ],
   bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

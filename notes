@@ -9,27 +9,30 @@ Angular CLI: 10.0.8
 Node: 12.18.3
 OS: win32 x64
 
-Angular: 10.0.14
-... animations, common, compiler, compiler-cli, core, forms
+Angular CLI: 9.1.12
+Node: 12.18.3
+OS: win32 x64
+
+Angular: 9.1.12
+... animations, cli, common, compiler, compiler-cli, core, forms
 ... platform-browser, platform-browser-dynamic, router
 Ivy Workspace: Yes
-
 Package                           Version
 -----------------------------------------------------------
-@angular-devkit/architect         0.1000.8
-@angular-devkit/build-angular     0.1000.8
-@angular-devkit/build-optimizer   0.1000.8
-@angular-devkit/build-webpack     0.1000.8
-@angular-devkit/core              10.0.8
-@angular-devkit/schematics        10.0.8
-@angular/cli                      10.0.8
-@ngtools/webpack                  10.0.8
-@schematics/angular               10.0.8
-@schematics/update                0.1000.8
+@angular-devkit/architect         0.901.12
+@angular-devkit/build-angular     0.901.12
+@angular-devkit/build-optimizer   0.901.12
+@angular-devkit/build-webpack     0.901.12
+@angular-devkit/core              9.1.12
+@angular-devkit/schematics        9.1.12
+@angular/material                 9.2.4
+@ngtools/webpack                  9.1.12
+@schematics/angular               9.1.12
+@schematics/update                0.901.12
 rxjs                              6.5.5
-typescript                        3.9.7
+typescript                        3.8.3
+webpack                           4.42.0
 
-webpack                           4.43.0
 angular 10
   npm install -g @angular/cli
   ng update @angular/cli @angular/core    -   should take you right to
