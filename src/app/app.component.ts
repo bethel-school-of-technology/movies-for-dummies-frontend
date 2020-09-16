@@ -4,6 +4,7 @@ import { HomeService } from './services/home.service';
 import { AuthService } from './services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
+// const movies: Movie = [];
 
 @Component({
   selector: 'app-root',
@@ -11,19 +12,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-
-
 // export class AppComponent implements OnInit {
 // ...
 // }
 export class AppComponent {
-  title = 'Angular 2 Planets';
-  staticPath: string = 'http://localhost:3001/staticPlanets';
+
+  title = 'Movies For Dummies Blog';
+  staticPath: string = 'http://localhost:3001/home';
   movies: Movie[] = [];
   loginStatus = false;
-
-
-
 
   constructor(private api: HomeService, private authService: AuthService, private router: Router) { }
 

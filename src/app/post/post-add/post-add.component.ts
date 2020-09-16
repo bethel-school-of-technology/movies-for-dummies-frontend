@@ -1,11 +1,12 @@
+import { MovieService } from './../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+
 import { MovieService } from '../../services/movie.service';
 import { Movie } from 'src/app/models/movie';
-
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -23,7 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class PostAddComponent implements OnInit {
 
   postForm: FormGroup;
-  category = '';
+  movie = '';
   postTitle = '';
   postAuthor = '';
   postDesc = '';
@@ -57,10 +58,10 @@ export class PostAddComponent implements OnInit {
     private catApi: MovieService,
     private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit() 
     // this.getMovies();
     this.postForm = this.formBuilder.group({
-      category : [null, Validators.required],
+      movie : [null, Validators.required],
       postTitle : [null, Validators.required],
       postAuthor : [null, Validators.required],
       postDesc : [null, Validators.required],
@@ -68,6 +69,9 @@ export class PostAddComponent implements OnInit {
       postReference : [null, Validators.required],
       postImgUrl : [null, Validators.required]
     });
+  }
+  getMovie() {
+    throw new Error("Method not implemented.");
   }
 
   onFormSubmit() {
@@ -85,7 +89,7 @@ export class PostAddComponent implements OnInit {
   }
 
   getMovies() {
-    this.catApi.getMovies()
+    this.movieApi.getMovies()
       .subscribe((res: any) => {
         this.movies = res;
         console.log(this.movies);
@@ -95,5 +99,4 @@ export class PostAddComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
-
 }

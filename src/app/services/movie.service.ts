@@ -1,11 +1,11 @@
+import { MovieComponent } from '../movie/movie.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Movie } from '../models/movie';
-import { Post } from '../models/post';
 
-const apiUrl = 'http://localhost:3000/api/public/';
+const apiUrl = 'http://localhost:3000/api/movie/';
 
 @Injectable({
   providedIn: 'root'
