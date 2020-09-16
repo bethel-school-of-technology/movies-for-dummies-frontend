@@ -44,7 +44,7 @@ export class PostEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private api: PostService,
-    private catApi: MovieService,
+    private movieApi: MovieService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -75,7 +75,7 @@ export class PostEditComponent implements OnInit {
   }
 
   getMovies() {
-    this.catApi.getMovies()
+    this.movieApi.getMovies()
       .subscribe((res: any) => {
         this.posts = res;
         console.log(this.posts);
