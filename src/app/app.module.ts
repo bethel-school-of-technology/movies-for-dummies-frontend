@@ -89,6 +89,7 @@ import { AuthGuard } from './auth/auth.guard';
       multi: true,
     },
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
