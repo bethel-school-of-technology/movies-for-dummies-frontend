@@ -58,8 +58,8 @@ export class PostAddComponent implements OnInit {
     private catApi: MovieService,
     private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
-    this.getMovies();
+  ngOnInit() 
+    // this.getMovies();
     this.postForm = this.formBuilder.group({
       movie : [null, Validators.required],
       postTitle : [null, Validators.required],
@@ -76,18 +76,17 @@ export class PostAddComponent implements OnInit {
 
   onFormSubmit() {
     console.log(this.postContent)
-    // this.isLoadingResults = true;
-    // this.api.addPost(this.postForm.value)
-    //   .subscribe((res: any) => {
-    //       const id = res._id;
-    //       this.isLoadingResults = false;
-    //       this.router.navigate(['/post/details', id]);
-    //     }, (err: any) => {
-    //       console.log(err);
-    //       this.isLoadingResults = false;
-    //     });
+    this.isLoadingResults = true;
+    this.api.addPost(this.postForm.value)
+      .subscribe((res: any) => {
+          const id = res._id;
+          this.isLoadingResults = false;
+          this.router.navigate(['/post/details', id]);
+        }, (err: any) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        });
   }
-
 
   getMovies() {
     this.movieApi.getMovies()

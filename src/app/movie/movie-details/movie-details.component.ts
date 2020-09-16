@@ -20,25 +20,25 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   getMovieDetails(id: any) {
-    // this.api.getMovies(id)
-    //   .subscribe((data: any) => {
-    //     this.movie = data;
-    //     console.log(this.movie);
-    //     this.isLoadingResults = false;
-    //   });
+    this.api.getMovies()
+      .subscribe((data: any) => {
+        this.movie = data;
+        console.log(this.movie);
+        this.isLoadingResults = false;
+      });
   }
 
   deleteMovie(id: any) {
-    // this.isLoadingResults = true;
-    // this.api.deleteMovie(id)
-    //   .subscribe(res => {
-    //       this.isLoadingResults = false;
-    //       this.router.navigate(['/movie']);
-    //     }, (err) => {
-    //       console.log(err);
-    //       this.isLoadingResults = false;
-    //     }
-    //   );
+    this.isLoadingResults = true;
+    this.api.deleteMovie(id)
+      .subscribe(res => {
+          this.isLoadingResults = false;
+          this.router.navigate(['/movie']);
+        }, (err) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        }
+      );
   }
 
 }

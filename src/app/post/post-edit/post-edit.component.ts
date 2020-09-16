@@ -48,7 +48,7 @@ export class PostEditComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    // this.getMovies();
+    this.getMovies();
     this.getPost(this.route.snapshot.params.id);
     this.postForm = this.formBuilder.group({
       postTitle : [null, Validators.required],
@@ -74,8 +74,8 @@ export class PostEditComponent implements OnInit {
     });
   }
 
-  getPosts() {
-    this.catApi.getPosts()
+  getMovies() {
+    this.catApi.getMovies()
       .subscribe((res: any) => {
         this.posts = res;
         console.log(this.posts);

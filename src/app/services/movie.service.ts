@@ -11,6 +11,9 @@ const apiUrl = 'http://localhost:3000/api/movie/';
   providedIn: 'root'
 })
 export class MovieService {
+  getPosts() {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +28,7 @@ export class MovieService {
   getMovie(id: any): Observable<Movie> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<Movie>(url).pipe(
-      tap(_ => console.log(`fetched Movie by id=${id}`)),
+      tap(_ => console.log(`fetched movie by id=${id}`)),
       catchError(this.handleError<Movie>(`getMovie id=${id}`))
     );
   }
