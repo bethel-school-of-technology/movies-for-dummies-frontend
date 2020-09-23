@@ -22,7 +22,6 @@ import { AppComponent } from './app.component';
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatSelectModule, MatSelect } from '@angular/material/select';
 
-import { PlanetsComponent } from './components/planets/planets.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent, MyErrorStateMatcher } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -42,7 +41,6 @@ import { AuthGuard } from './auth/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
-    PlanetsComponent,
     AdminComponent,
     LoginComponent,
     RegisterComponent,
@@ -90,7 +88,6 @@ import { AuthGuard } from './auth/auth.guard';
     },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
