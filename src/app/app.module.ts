@@ -14,16 +14,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatTableModule } from '@angular/material/table';
+import { BymovieComponent } from './bymovie/bymovie.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { QuillModule } from  'ngx-quill';
 import { AppComponent } from './app.component';
 import { MatGridListModule } from '@angular/material/grid-list'
-import { MatSelectModule, MatSelect } from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AdminComponent } from './admin/admin.component';
-import { LoginComponent, MyErrorStateMatcher } from './auth/login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { MovieComponent } from './movie/movie.component';
@@ -34,9 +34,8 @@ import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
-import { BymovieComponent } from './bymovie/bymovie.component';
 import { DetailsComponent } from './details/details.component';
-import { AuthGuard } from './auth/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -54,8 +53,8 @@ import { AuthGuard } from './auth/auth.guard';
     PostAddComponent,
     PostEditComponent,
     BymovieComponent,
-    DetailsComponent,
-    MyErrorStateMatcher
+    DetailsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -65,7 +64,6 @@ import { AuthGuard } from './auth/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
@@ -76,7 +74,6 @@ import { AuthGuard } from './auth/auth.guard';
     MatMenuModule,
     MatToolbarModule,
     QuillModule.forRoot(),
-    AuthGuard,
     MatGridListModule,
     MatSelectModule,
   ],
