@@ -36,7 +36,6 @@ import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { DetailsComponent } from './details/details.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +53,6 @@ import { DetailsComponent } from './details/details.component';
     PostEditComponent,
     BymovieComponent,
     DetailsComponent
-
   ],
   imports: [
     BrowserModule,
