@@ -9,5 +9,4 @@ export class Post {
   postImgUrl: string;
   created: Date;
   updated: Date;
-
 }
