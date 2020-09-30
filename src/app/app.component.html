@@ -1,23 +1,10 @@
-<mat-toolbar>
 
-  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<div>
+  <h1>Movies for Dummies</h1>
+</div>
 
-  <mat-menu #menu="matMenu">
 
-    <div *ngIf="loginStatus === false">
-      <button mat-menu-item [routerLink]="['/']">Home</button>
-      <button mat-menu-item *ngFor="let movie of movies" [routerLink]="['/bymovie/', movie.id]">{{movie.movieName}}</button>
-    </div>
 
-    <div *ngIf="loginStatus === true">
-      <button mat-menu-item [routerLink]="['/admin']">Home</button>
-      <button mat-menu-item [routerLink]="['/movie']">Movie</button>
-      <button mat-menu-item [routerLink]="['/post']">Post</button>
-      <button mat-menu-item (click)="logout()">Logout</button>
-    </div>
-
-  </mat-menu>
-
-</mat-toolbar>
-
-<router-outlet></router-outlet>
+<div>
+  <router-outlet></router-outlet>
+</div>

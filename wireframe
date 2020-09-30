@@ -1,0 +1,23 @@
+- Signup Page
+    - Login Page
+
+-Login Page
+    -Signup Page
+
+-Login Page ------> Home or Movies Page
+
+-Movie Page
+    SHOULD INCLUDE:
+        -Navbar
+        -Movie Posters
+        -Profile Page
+        -Logout Button
+
+-Movies Page ------> click on movie poster ----> Seperate Page for detailed info of each film
+
+-Detailed Page 
+    SHOULD INCLUDE:
+        -Image Poster
+        -Movie details
+        -Trailer if possible
+        -Comments section
