@@ -4,8 +4,10 @@
    padding: 0;
    /* background-color: black; */
    /* color: white; */
-   /* height: 100%; */
-   font-family: "Roboto";
+   /* height: 100vh; */
+   /* font-family: "Roboto"; */
+   font-family: sans-serif;
+    /* background: #34495e; */
 }
 
 div {
@@ -20,3 +22,9 @@ div {
    align-items: center;
    justify-content: center;
 }
+
+/* .main {
+   background-color: #191919;
+   height: 100%;
+   width: 100%;
+} */
