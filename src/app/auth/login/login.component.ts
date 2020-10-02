@@ -4,6 +4,8 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
 
+
+
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
-    this.authService.login(form)
+    this.authService.login()
       .subscribe(res => {
         console.log(res);
         if (res.token) {
@@ -44,6 +46,15 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['admin']);
         }
       }, (err) => {
+        console.log(err);
+      });
+  }
+
+  login() {
+    this.authService.login()
+      .subscribe((res: any) => {
+        this.router.navigate(['/']);
+      }, err => {
         console.log(err);
       });
   }
