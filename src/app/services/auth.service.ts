@@ -4,21 +4,21 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-const apiUrl = 'http://localhost:3000/api/auth/';
+const apiUrl = 'http://localhost:3001/users/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl = 'http://localhost:3000/api/auth/';
+  apiUrl = 'http://localhost:3001/users/';
   @Output() isLoggedIn: EventEmitter<any> = new EventEmitter();
   loggedInStatus = false;
   redirectUrl: string;
 
   constructor(private http: HttpClient) { }
 
-  login(data: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl + 'login', data)
+  login(): Observable<any> {
+    return this.http.post<any>(this.apiUrl + 'login', {} )
       .pipe(
         tap(_ => {
           this.isLoggedIn.emit(true);

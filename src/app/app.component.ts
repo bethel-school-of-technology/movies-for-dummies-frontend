@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
+
 // export class AppComponent implements OnInit {
 // ...
 // }
@@ -41,6 +42,16 @@ export class AppComponent {
       });
   }
 
+  login() {
+    this.authService.login()
+      .subscribe((res: any) => {
+        this.router.navigate(['/']);
+      }, err => {
+        console.log(err);
+      });
+  }
+
+
   logout() {
     this.authService.logout()
       .subscribe((res: any) => {
@@ -50,4 +61,12 @@ export class AppComponent {
       });
   }
 
+}
+
+export class RegisterComponent {
+
+  title = 'Movies For Dummies Signup';
+  staticPath: string = 'http://localhost:3001/users/signup';
+
+  
 }
