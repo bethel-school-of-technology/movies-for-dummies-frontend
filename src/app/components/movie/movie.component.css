@@ -1,0 +1,16 @@
+.navbar{
+    width: 100%;
+    background-color: orchid;
+    height: 30px;
+    color: white;
+    display: flex;
+}
+
+a {
+    list-style-type: none;
+    color:white;
+}
+
+li {
+    text-decoration: none;
+}
