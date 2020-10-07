@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Movie } from '../models/movie'
 import { Post } from '../models/post';
 
-const apiUrl = 'http://localhost:3000/api/public/';
+const apiUrl = 'http://localhost:3001/api/public/';
 
 @Injectable({
   providedIn: 'root'

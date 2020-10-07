@@ -3,22 +3,31 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 const apiUrl = 'http://localhost:3001/users/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  // register(form: NgForm) {
+  //   throw new Error('Method not implemented.');
+  // }
+ 
   apiUrl = 'http://localhost:3001/users/';
   @Output() isLoggedIn: EventEmitter<any> = new EventEmitter();
   loggedInStatus = false;
   redirectUrl: string;
+  
+  
 
   constructor(private http: HttpClient) { }
 
+  
+
   login(): Observable<any> {
-    return this.http.post<any>(this.apiUrl + 'login', {} )
+    return this.http.post<any>(apiUrl + 'login', {})
       .pipe(
         tap(_ => {
           this.isLoggedIn.emit(true);
@@ -40,7 +49,7 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl + 'register', data)
+    return this.http.post<any>(apiUrl + 'register', data)
       .pipe(
         tap(_ => this.log('login')),
         catchError(this.handleError('login', []))
