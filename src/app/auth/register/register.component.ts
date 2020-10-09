@@ -15,13 +15,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
-
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
-  fullName = '';
+  firstName = '';
+  lastName = '';
+  email = '';
   username = '';
   password = '';
   isLoadingResults = false;
@@ -31,7 +32,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      fullName : [null, Validators.required],
+      firstName : [null, Validators.required],
+      lastName : [null, Validators.required],
+      email : [null, Validators.required],
       username : [null, Validators.required],
       password : [null, Validators.required]
     });
@@ -46,6 +49,5 @@ export class RegisterComponent implements OnInit {
         alert(err.error);
       });
   }
-
 
 }

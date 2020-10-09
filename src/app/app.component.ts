@@ -42,14 +42,14 @@ export class AppComponent {
       });
   }
 
-  login() {
-    this.authService.login()
-      .subscribe((res: any) => {
-        this.router.navigate(['/']);
-      }, err => {
-        console.log(err);
-      });
-  }
+  // login() {
+  //   this.authService.login()
+  //     .subscribe((res: any) => {
+  //       this.router.navigate(['/']);
+  //     }, err => {
+  //       console.log(err);
+  //     });
+  // }
 
 
   logout() {
