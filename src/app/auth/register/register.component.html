@@ -1,4 +1,8 @@
+ Login/Register
 <form class="box" [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)" >
+
+<form class="box" method="post">
+dev
   <div>
     <h1>Sign Up</h1>
   </div>
@@ -7,11 +11,18 @@
     <input type="text" placeholder="Last Name" />
     <input type="text" placeholder="Email" />
     <input type="text" placeholder="Username" />
+Login/Register
     <input type="text" placeholder="Password" />
     <button type="submit" >Sign up</button>
+
+    <input type="password" placeholder="Password" />
+    <button type="submit" class="signup">Sign up</button>
+dev
   </div>
   <div>
-    <button><a routerLink="/login" >Login here</a></button>
+    <button class="login">
+      <a routerLink="/login" >Login here</a>
+    </button>
   </div>
 </form>
 
