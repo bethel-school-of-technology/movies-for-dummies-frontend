@@ -15,7 +15,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
@@ -44,6 +44,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(form)
       .subscribe(res => {
         this.router.navigate(['login']);
+        console.log(form);
       }, (err) => {
         console.log(err);
         alert(err.error);
