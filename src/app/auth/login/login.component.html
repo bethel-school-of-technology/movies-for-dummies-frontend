@@ -1,21 +1,21 @@
- Login/Register
-<form [formGroup]="loginForm" >
+ <!-- Login/Register -->
+<!-- <form [formGroup]="loginForm" >
  Spencersloginchanges
-<form>
-dev
-  <div>
-    <h1>Login</h1>
+</form> -->
+<!-- dev
+  <div> -->
+    <!-- <h1>Login</h1>
     <input type="text" placeholder="Username" />
     <input type="text" placeholder="Password" />
-    <button (click)="login()">Login</button>
+    <button (click)="login()">Login</button> -->
 
-<form class="box" method="post">
+<form class="box" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" >
   <div>
     <h1>Login</h1>
-    <input type="text" placeholder="Username" />
-    <input type="password" placeholder="Password" />
-    <button class="login">Login</button>
- dev
+    <input type="text" placeholder="Username" formControlName="username"/>
+    <input type="password" placeholder="Password" formControlName="password"/>
+    <button class="login" type="submit">Login</button>
+ <!-- dev -->
   </div>
   <div>
     <button class="register">

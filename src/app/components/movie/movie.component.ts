@@ -9,7 +9,7 @@ import { Movie } from '../../models/movie';
 })
 export class MovieComponent implements OnInit {
 
-  displayedColumns: string[] = ['movieName', 'movieDesc'];
+  displayedColumns: string[] = ['moviesTitle', 'moviesBody', 'moviesUrl', 'moviesImage'];
   data: Movie[] = [];
   isLoadingResults = true;
 

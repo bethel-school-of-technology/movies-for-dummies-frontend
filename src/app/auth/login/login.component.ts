@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Movie } from 'src/app/models/movie';
 
 
 
@@ -38,22 +39,26 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
-    this.authService.login()
+    console.log(form)
+    this.authService.login(form)
       .subscribe(res => {
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
           this.router.navigate(['admin']);
         }
+        else{
+          this.router.navigate(['movie']);
+        }
       }, (err) => {
         console.log(err);
       });
   }
 
-  login() {
-    this.authService.login()
+  login(form) {
+    this.authService.login(form)
       .subscribe((res: any) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['register']);
       }, err => {
         console.log(err);
       });
