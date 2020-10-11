@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Movie } from '../models/movie';
 
-const apiUrl = 'http://localhost:3001/api/movie/';
+const apiUrl = 'http://localhost:3001/api/movies/';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class MovieService {
 
   addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(apiUrl, movie).pipe(
-      tap((prod: Movie) => console.log(`added movie w/ id=${movie.id}`)),
+      tap((prod: Movie) => console.log(`added movie w/ id=${movie.moviesId}`)),
       catchError(this.handleError<Movie>('addMovie'))
     );
   }
