@@ -10,3 +10,11 @@
     <img src="../../../assets/images/crash-testing-dummies1.jpg">
         <!-- <div {{movie.moviesTitle}} ></div> -->
 </div>
+
+<ul>
+    
+    <li *ngFor="let movies of movie">
+      <p>{{movie.moviesId + 1}}. {{movie.moviesTitle}}: {{movie.moviesImage}} </p>
+      
+    </li>
+  </ul>
