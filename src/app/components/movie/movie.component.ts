@@ -12,7 +12,7 @@ export class MovieComponent implements OnInit {
   displayedColumns: string[] = ['moviesTitle', 'moviesBody', 'moviesUrl', 'moviesImage'];
   data: Movie[] = [];
   isLoadingResults = true;
-
+  
   constructor(private api: MovieService) { }
 
   ngOnInit() {

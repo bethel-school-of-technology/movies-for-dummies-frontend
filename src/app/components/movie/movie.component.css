@@ -1,16 +1,33 @@
 .navbar{
     width: 100%;
-    background-color: orchid;
-    height: 30px;
+    background-color: #191919;
+    height: 60px;
     color: white;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 a {
     list-style-type: none;
     color:white;
+    text-decoration: none;
+    font-weight: 800;
 }
 
 li {
     text-decoration: none;
+    list-style: none;
+    text-align: center;
+    padding: 2px;
+    margin: 20px;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.right {
+    float: right;
 }
