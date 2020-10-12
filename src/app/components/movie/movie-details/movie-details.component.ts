@@ -10,7 +10,7 @@ import { Movie } from 'src/app/models/movie';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  movie: Movie = { id: null, movieName: '', movieDesc: '', movieImgUrl: '', movieContent: '', updated: null };
+  movie: Movie = { moviesId: null, moviesTitle: '', moviesBody: '', moviesImage: '', moviesUrl: '' };
   isLoadingResults = true;
 
   constructor(private route: ActivatedRoute, private api: MovieService, private router: Router) { }
