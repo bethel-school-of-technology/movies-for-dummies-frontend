@@ -4,10 +4,26 @@
         <li><a routerLink="/login" >Logout here</a></li>
     </ul>
 </div>
-
+<!-- 
 <div>
     <h2>Hello this is movies</h2>
     <img src="../../../assets/images/crash-testing-dummies1.jpg">
+
+       <div {{movie.moviesTitle}} ></div>
+</div> -->
+
+<div class="movie">
+    <h2>
+      Movies:
+    </h2>
+    <ul>
+      <li *ngFor="let movie of movies">
+        <p>{{movie.moviesId}}. {{movie.moviesTitle}}: {{movie.moviesBody}}</p>
+        <img [src]='movie.image_url' />
+      </li>
+    </ul>
+  </div>
+
         <!-- <div {{movie.moviesTitle}} ></div> -->
 </div>
 
@@ -18,3 +34,4 @@
       
     </li>
   </ul>
+
