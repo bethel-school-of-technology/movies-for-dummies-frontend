@@ -1,20 +1,20 @@
 <div class="navbar">
     <ul>
-        <li><a>Movies</a></li>
-        <li><a routerLink="/login" >Logout here</a></li>
+        <li><a routerLink="#">Movies</a></li>
+        <li class="right"><a routerLink="/login" >Logout</a></li>
     </ul>
 </div>
 
 <div>
     <h2>Hello this is movies</h2>
-    <img src="../../../assets/images/crash-testing-dummies1.jpg">
+   <a routerLink="/" ><img src="../../../assets/images/crash-testing-dummies1.jpg"></a>
         <!-- <div {{movie.moviesTitle}} ></div> -->
 </div>
 
 <ul>
-    
+
     <li *ngFor="let movies of movie">
       <p>{{movie.moviesId + 1}}. {{movie.moviesTitle}}: {{movie.moviesImage}} </p>
-      
+
     </li>
   </ul>

@@ -62,7 +62,7 @@ const routes: Routes = [
   },
   {
     path: 'movie/add',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: MovieAddComponent,
     data: { title: 'Movie Add' }
   },

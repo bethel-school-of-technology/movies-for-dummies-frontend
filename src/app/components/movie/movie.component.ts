@@ -68,7 +68,7 @@ getMovie(id: any) {
       moviesBody: data.postBody,
       moviesImage: data.postImage,
       moviesUrl: data.postContent
-      
+
     });
   });
 }}
