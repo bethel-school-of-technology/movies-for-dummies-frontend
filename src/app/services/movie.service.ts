@@ -4,12 +4,15 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Movie } from '../models/movie';
 
-const apiUrl = 'http://localhost:3001/api/movies/';
+const apiUrl = 'http://localhost:3001/movies';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
+  get<T>(movies: Movie[]) {
+    throw new Error('Method not implemented.');
+  }
   getPosts() {
     throw new Error("Method not implemented.");
   }

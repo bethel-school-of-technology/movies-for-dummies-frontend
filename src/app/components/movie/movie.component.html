@@ -8,6 +8,7 @@
 <div>
     <h2>Hello this is movies</h2>
     <img src="../../../assets/images/crash-testing-dummies1.jpg">
+
        <div {{movie.moviesTitle}} ></div>
 </div> -->
 
@@ -22,3 +23,15 @@
       </li>
     </ul>
   </div>
+
+        <!-- <div {{movie.moviesTitle}} ></div> -->
+</div>
+
+<ul>
+    
+    <li *ngFor="let movies of movie">
+      <p>{{movie.moviesId + 1}}. {{movie.moviesTitle}}: {{movie.moviesImage}} </p>
+      
+    </li>
+  </ul>
+
